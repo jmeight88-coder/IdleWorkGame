@@ -13,7 +13,7 @@ class IdleWorkGame:
         try:
             with open(file_path, 'rb') as file:
                 self.points = pickle.load(file)
-        except EOFError:
+        except FileNotFoundError:
             self.points=0
             with open('data.pkl', 'wb') as f:
                 pickle.dump(self.points, f)
